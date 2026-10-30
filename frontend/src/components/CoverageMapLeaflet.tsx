@@ -37,10 +37,11 @@ export const CoverageMapLeaflet: React.FC<CoverageMapLeafletProps> = ({
         zoom: initialZoom,
       });
 
-      // Dark style OpenStreetMap tiles
-      L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
-        attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
-        maxZoom: 20,
+      // OpenStreetMap tiles with dark mode CSS filter (no API key required)
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a> contributors',
+        maxZoom: 19,
+        className: "map-tiles-dark",
       }).addTo(map);
 
       mapInstanceRef.current = map;

@@ -62,9 +62,8 @@ export const CoverageMapPage: React.FC<CoverageMapPageProps> = ({
         setDeadZones(dz);
         setCoverageGrid(grid);
 
-        // Check if geographic GPS coordinates exist
-        const hasGps = meas.some((m) => m.latitude !== null && m.longitude !== null);
-        setUseGpsView(hasGps && currentSurvey.positioning_mode === "gps");
+        // Always default to the 2D IDW Canvas Grid heatmap view
+        setUseGpsView(false);
       } catch (err) {
         console.error("Failed to load map data:", err);
       } finally {
